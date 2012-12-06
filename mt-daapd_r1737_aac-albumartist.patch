@@ -1,0 +1,22 @@
+--- scan-aac.c	(revision 1737)
++++ scan-aac.c	(working copy)
+@@ -231,6 +231,8 @@
+                 
+                 if(!memcmp(current_atom,"\xA9" "nam",4)) { /* Song name */
+                     pmp3->title=strdup((char*)&current_data[16]);
++                } else if(!memcmp(current_atom,"aART",4)) {
++                    pmp3->orchestra=strdup((char*)&current_data[16]);
+                 } else if(!memcmp(current_atom,"\xA9" "ART",4)) {
+                     pmp3->artist=strdup((char*)&current_data[16]);
+                 } else if(!memcmp(current_atom,"\xA9" "alb",4)) {
+--- scan-mp4.c	(revision 1737)
++++ scan-mp4.c	(working copy)
+@@ -119,6 +119,8 @@
+                 
+                 if(!memcmp(current_atom,"\xA9" "nam",4)) { /* Song name */
+                     pmp3->title=strdup((char*)&current_data[16]);
++                } else if(!memcmp(current_atom,"\xA9" "soaa",4)) {
++                    pmp3->orchestra=strdup((char*)&current_data[16]);
+                 } else if(!memcmp(current_atom,"\xA9" "ART",4)) {
+                     pmp3->artist=strdup((char*)&current_data[16]);
+                 } else if(!memcmp(current_atom,"\xA9" "alb",4)) {

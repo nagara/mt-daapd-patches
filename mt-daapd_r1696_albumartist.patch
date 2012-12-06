@@ -1,0 +1,57 @@
+--- smart-parser.c	(revision 1696)
++++ smart-parser.c	(working copy)
+@@ -307,6 +307,7 @@
+     { T_STRING_FIELD, "dmap.itemname", "title" },
+     { T_INT_FIELD, "dmap.itemid", "id" },
+     { T_STRING_FIELD, "daap.songalbum", "album" },
++    { T_STRING_FIELD, "daap.songalbumartist", "album_artist" },
+     { T_STRING_FIELD, "daap.songartist", "artist" },
+     { T_INT_FIELD, "daap.songbitrate", "bitrate" },
+     { T_STRING_FIELD, "daap.songcomment", "comment" },
+--- plugins/out-daap.h	(revision 1696)
++++ plugins/out-daap.h	(working copy)
+@@ -25,6 +25,7 @@
+ 
+     // song meta data
+     metaSongAlbum = firstTypeSpecificMetaId,
++    metaSongAlbumArtist,
+     metaSongArtist,
+     metaSongBPM,
+     metaSongBitRate,
+--- plugins/out-daap-proto.c	(revision 1696)
++++ plugins/out-daap-proto.c	(working copy)
+@@ -69,6 +69,7 @@
+     { 0x0C, "abgn", "daap.browsegenrelisting" },
+     { 0x0C, "adbs", "daap.databasesongs" },
+     { 0x09, "asal", "daap.songalbum" },
++    { 0x09, "asaa", "daap.songalbumartist" },
+     { 0x09, "asar", "daap.songartist" },
+     { 0x03, "asbt", "daap.songbeatsperminute" },
+     { 0x03, "asbr", "daap.songbitrate" },
+@@ -169,6 +170,7 @@
+     /* end generics */
+     { "daap.songalbum",                    metaSongAlbum },
+     { "daap.songartist",                   metaSongArtist },
++    { "daap.songalbumartist",              metaSongAlbumArtist },
+     { "daap.songbitrate",                  metaSongBitRate },
+     { "daap.songbeatsperminute",           metaSongBPM },
+     { "daap.songcomment",                  metaSongComment },
+@@ -594,6 +596,9 @@
+         if(daap_wantsmeta(pinfo->meta, metaSongAlbum))
+             /* asal */
+             size += DMAPLEN(valarray[SG_ALBUM]);
++        if(daap_wantsmeta(pinfo->meta, metaSongAlbumArtist))
++            /* asaa */
++            size += DMAPLEN(valarray[SG_ALBUM_ARTIST]);
+         if(daap_wantsmeta(pinfo->meta, metaSongArtist))
+             /* asar */
+             size += DMAPLEN(valarray[SG_ARTIST]);
+@@ -781,6 +786,8 @@
+             current += dmap_add_string(current,"asul",valarray[SG_URL]);
+         if(EMIT(valarray[5]) && daap_wantsmeta(pinfo->meta, metaSongAlbum))
+             current += dmap_add_string(current,"asal",valarray[SG_ALBUM]);
++        if(EMIT(valarray[42]) && daap_wantsmeta(pinfo->meta, metaSongAlbumArtist))
++            current += dmap_add_string(current,"asaa",valarray[SG_ALBUM_ARTIST]);
+         if(EMIT(valarray[4]) && daap_wantsmeta(pinfo->meta, metaSongArtist))
+             current += dmap_add_string(current,"asar",valarray[SG_ARTIST]);
+         if(daap_wantsmeta(pinfo->meta, metaSongBPM))
