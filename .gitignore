@@ -30,3 +30,6 @@ stamp-h1
 # ignore debian packaging for convenience
 debian/
 
+# Mac OS X stuff
+.DS_Store
+
