@@ -1,4 +1,4 @@
-Patches for mt-daapd by NAGARA
+patches for mt-daapd
 ========
 mt-daapd を快適に使うための patch repository です。
 
