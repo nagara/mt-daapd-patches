@@ -24,7 +24,7 @@ mt-daapd rev1696 を Album Artist 対応にするパッチです。mp3 ファイ
 
 mt-daapd の src ディレクトリで使ってください。
 
-    $ patch -p0 < mt-daapd_r1696_scan-mp3_albumartist.patch
+    $ patch < mt-daapd_r1696_scan-mp3_albumartist.patch
 
 mt-daapd_r1737_aac-albumartist.patch (おまけ)
 --------
