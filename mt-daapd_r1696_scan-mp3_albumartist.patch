@@ -1,0 +1,15 @@
+--- scan-mp3.c	(revision 1689 + mt-daapd_r1696_cp932.patch)
++++ scan-mp3.c	(working copy)
+@@ -513,8 +513,12 @@
+                     DPRINTF(E_DBG,L_SCAN," Grouping: %s\n",utf8_text);
+                 } else if(!strcmp(pid3frame->id,"TPE2")) {
+                     used=1;
++/*
+                     pmp3->orchestra = utf8_text;
+                     DPRINTF(E_DBG,L_SCAN," Orchestra: %s\n",utf8_text);
++*/
++                    pmp3->album_artist = utf8_text;
++                    DPRINTF(E_DBG,L_SCAN," Album Artist: %s\n",utf8_text);
+                 } else if(!strcmp(pid3frame->id,"TPE3")) {
+                     used=1;
+                     pmp3->conductor = utf8_text;
