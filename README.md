@@ -14,13 +14,15 @@ mt-daapd_r1696_albumartist.patch
 --------
 mt-daapd rev1696 を Album Artist 対応にするパッチです。[MEDIA STEETさん](http://media.st/ "MEDIA STREET")の [Firefly(mt-daapd)をアルバムアーティスト対応にする](http://media.st/blog/2011/10/firefly-mt-daapd-albumartist/ "Firefly(mt-daapd)をアルバムアーティスト対応にする")パッチを rev1696 向けに書き直したものです。
 
+mt-daapd rev1696 は、データベースに album_artist フィールドを持っています。orchestra フィールドの使用はやめて album_artist フィールドを使っています。
+
 mt-daapd の src ディレクトリで -p0 付きで使ってください。
 
     $ patch -p0 < mt-daapd_r1696_albumartist.patch
 
 mt-daapd_r1696_scan-mp3_albumartist.patch
 --------
-mt-daapd rev1696 を Album Artist 対応にするパッチです。mp3 ファイルの TPE2 フレームを orchestra フィールドではなく、album_artist フィールドに保存するようにします。mt-daapd_r1696_cp932.patch を適用した後に使用してください。
+mt-daapd rev1696 を Album Artist 対応にするパッチ、その2です。mp3 ファイルの TPE2 フレームをデータベースの orchestra フィールドではなく、album_artist フィールドに保存するようにします。mt-daapd_r1696_cp932.patch を適用した後に使用してください。
 
 mt-daapd の src ディレクトリで使ってください。
 
