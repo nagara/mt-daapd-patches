@@ -18,7 +18,15 @@ mt-daapd の src ディレクトリで -p0 付きで使ってください。
 
     $ patch -p0 < mt-daapd_r1696_albumartist.patch
 
-mt-daapd_r1737_aac-albumartist.patch
+mt-daapd_r1696_scan-mp3_albumartist.patch
+--------
+mt-daapd rev1696 を Album Artist 対応にするパッチです。mp3 ファイルの TPE2 フレームを orchestra フィールドではなく、album_artist フィールドに保存するようにします。mt-daapd_r1696_cp932.patch を適用した後に使用してください。
+
+mt-daapd の src ディレクトリで使ってください。
+
+    $ patch -p0 < mt-daapd_r1696_scan-mp3_albumartist.patch
+
+mt-daapd_r1737_aac-albumartist.patch (おまけ)
 --------
 [mt-daapd rev1737 stable-aspl-free branche](http://mt-daapd.svn.sourceforge.net/viewvc/mt-daapd/branches/stable-aspl-free/ "Index of /branches/stable-aspl-free") で aac ファイルも Album Artist タグを取得するようにするパッチです。単独でも使えますが、[MEDIA STEETさん](http://media.st/ "MEDIA STREET")の [Firefly(mt-daapd)をアルバムアーティスト対応にする](http://media.st/blog/2011/10/firefly-mt-daapd-albumartist/ "Firefly(mt-daapd)をアルバムアーティスト対応にする")パッチと一緒に使わないとあんま意味がありません。
 
