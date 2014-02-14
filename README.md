@@ -30,11 +30,11 @@ mt-daapd の src ディレクトリで使ってください。
 
 mt-daapd_r1737_aac-albumartist.patch (おまけ)
 --------
-[mt-daapd rev1737 stable-aspl-free branche](http://mt-daapd.svn.sourceforge.net/viewvc/mt-daapd/branches/stable-aspl-free/ "Index of /branches/stable-aspl-free") で aac ファイルも Album Artist タグを取得するようにするパッチです。mt-daapd rev1696 はデフォルトで Album Artist を orchestra フィールドに格納するのでこのパッチは不要です。
+[mt-daapd rev1737 stable-aspl-free branche](http://mt-daapd.svn.sourceforge.net/viewvc/mt-daapd/branches/stable-aspl-free/ "Index of /branches/stable-aspl-free") で aac ファイルも Album Artist タグを取得するようにするパッチです。Album Artist を orchestra フィールドに格納する方向で作っていた名残です。
 
 これ単独でも使えますが、[MEDIA STEETさん](http://media.st/ "MEDIA STREET")の [Firefly(mt-daapd)をアルバムアーティスト対応にする](http://media.st/blog/2011/10/firefly-mt-daapd-albumartist/ "Firefly(mt-daapd)をアルバムアーティスト対応にする")パッチと一緒に使わないとあんま意味がありません。
 
-AAC ファイルの aART タグを orchestra フィールドに保存して整合性をとるものです。
+[MEDIA STEETさん](http://media.st/ "MEDIA STREET")の [Firefly(mt-daapd)をアルバムアーティスト対応にする](http://media.st/blog/2011/10/firefly-mt-daapd-albumartist/ "Firefly(mt-daapd)をアルバムアーティスト対応にする")パッチは AAC を考慮していないので、AAC ファイルの aART タグを orchestra フィールドに保存して整合性をとるものです。
 
 mt-daapd の src ディレクトリで使ってください。
 
