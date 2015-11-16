@@ -14,7 +14,7 @@ mt-daapd_r1696_albumartist.patch
 --------
 mt-daapd rev1696 を Album Artist 対応にするパッチです。[MEDIA STEETさん](http://media.st/ "MEDIA STREET")の [Firefly(mt-daapd)をアルバムアーティスト対応にする](http://media.st/blog/2011/10/firefly-mt-daapd-albumartist/ "Firefly(mt-daapd)をアルバムアーティスト対応にする")パッチを rev1696 向けに書き直したものです。
 
-mt-daapd rev1696 は、データベースに album_artist フィールドを持っています。orchestra フィールドの使用はやめて album_artist フィールドを使っています。
+mt-daapd rev1696 は、データベースに album_artist フィールドを持っています。アルバムアーティスト情報（daap.songalbumartist）の格納に orchestra フィールドの使用はやめて album_artist フィールドに保存するようにします。
 
 mt-daapd の src ディレクトリで -p0 付きで使ってください。
 
